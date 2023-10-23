@@ -109,7 +109,7 @@ public class IndexHandler {
 		File folder = new File(docPath);
 		Scanner scannerDaFile = null;
 		
-		float start = Instant.now().toEpochMilli();
+		float start = System.nanoTime();
 		for (File file: folder.listFiles()) {
 			scannerDaFile = new Scanner(file);
 
@@ -140,8 +140,8 @@ public class IndexHandler {
 
 		writer.commit();
 		
-		float end = Instant.now().toEpochMilli();
-		float time = (end-start)/1000;
+		float end = System.nanoTime();
+		float time = (end-start)/1000000000;
 		System.out.println("E' stato creato un nuovo Indice in: " + indexPath);
 		System.out.println(" - Tempo necessario per la Creazione: " + time + " secondi");
 		System.out.println(" - Documenti Indicizzati: " + folder.listFiles().length);
