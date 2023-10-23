@@ -39,13 +39,20 @@ public class QueryHandler {
 	}
 	
 	public void execute() throws Exception {
-		System.out.println("\nQUI PUOI INSERIRE LE TUE QUERY");
+		System.out.println("\nQui puoi inserire le tue Query: il Sistema utilizza il SimpleQueryParser di Lucene, che permette l'interpretazione della Query imposta dall'Utente.");
+		
+		System.out.println("Sono forniti i seguenti operatori: ");
+		System.out.println("\t1) '+', col significato di AND: token1 + token2");
+		System.out.println("\t2) '-', col significato di NOT per un token: -token1");
+		System.out.println("\t2) '|', col significato di OR: token1 | token2");
+		System.out.println("\t3) I doppi apici, per specificare una Phrase Query: \"token1 token2 token3 ...\"");
+		System.out.println("\t4) Si possono usare le parentesi tonde per comporre Query complesse: (-token1) + \"token2 token3\"\n");
 		
 		Scanner scanner = new Scanner(System.in);
 		while(true) {
-			System.out.print("Inserisci la Query, oppure \"stop\" per terminare l'esecuzione: ");
+			System.out.print("Inserisci la Query, oppure \"STOP\" per terminare l'esecuzione: ");
 			String s = scanner.nextLine();
-			if (s.equals("stop")) {
+			if (s.equals("STOP")) {
 				System.out.println("Fine dell'Esecuzione\n\n");
 				scanner.close();
 				break;
